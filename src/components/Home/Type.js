@@ -8,7 +8,7 @@ function Type() {
         strings: [
           "Software Engineer",
           "Ruby on Rails and ReactJS Developer",
-          "Java Programmer",
+          "Spring Boot Java Developer",
           "Open Source Contributor",
         ],
         autoStart: true,

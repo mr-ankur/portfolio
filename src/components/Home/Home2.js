@@ -25,7 +25,7 @@ function Home2() {
               <br />
               <br />I am fluent in classics like
               <i>
-                <b className="purple"> Ruby on Rails, ReactJS and Java. </b>
+                <b className="purple"> Ruby on Rails, ReactJS and Spring Boot. </b>
               </i>
               <br />
               <br />
