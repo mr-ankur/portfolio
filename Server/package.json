@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "start-server": "node index.js"
+    "start": "nodemon index.js --max_old_space_size=2560",
+    "start-server": "node index.js --max_old_space_size=2560"
   },
   "author": "",
   "license": "ISC",
