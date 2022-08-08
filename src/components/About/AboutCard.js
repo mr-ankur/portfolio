@@ -30,7 +30,7 @@ function AboutCard() {
           <p style={{ marginBlockEnd: 0, color: "rgb(155 126 172)" }}>
             "Build the innovation by famous tool i.e. Programming!" &#x1F920;
           </p>
-          <footer className="blockquote-footer">Ankut Gupta</footer>
+          <footer className="blockquote-footer">Ankur Gupta</footer>
         </blockquote>
       </Card.Body>
     </Card>
