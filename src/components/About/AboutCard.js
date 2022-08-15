@@ -10,7 +10,7 @@ function AboutCard() {
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className="purple">Ankur Gupta </span>
             from <span className="purple"> Uttar Pradesh, India.</span>
-            <br />I am Software Engineer at Webonise Lab Pvt Ltd.
+            <br />I am Senior Software Developer at Webonise Lab Pvt Ltd.
             <br />
             <br />
             Apart from coding, some other activities that I love to do!
