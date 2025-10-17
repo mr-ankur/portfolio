@@ -25,15 +25,15 @@ function Home2() {
               <br />
               <br />I am fluent in classics like
               <i>
-                <b className="purple"> Ruby on Rails, ReactJS and Spring Boot. </b>
+                <b className="purple"> Ruby on Rails, ReactJS, NextJS, Redis, REST API, GraphQL, MongoDB and Postgres. </b>
               </i>
               <br />
               <br />
-              My field of Interest's are building new &nbsp;
+              My field of Interest's are building new scalable &nbsp;
               <i>
-                <b className="purple">Web Technologies and Products </b> and
+                <b className="purple">Software Solutions</b> and
                 also in areas related to{" "}
-                <b className="purple">Blockchain Technology</b>
+                <b className="purple">Exploring DevOps Architectures</b>
               </i>
               <br />
               <br />
