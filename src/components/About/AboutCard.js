@@ -8,22 +8,22 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className="purple">Ankur Gupta </span>
-            from <span className="purple"> Uttar Pradesh, India.</span>
-            <br />
-            <br />I am Senior Full Stack Engineer with 7+ years of experience specializing in Ruby on Rails and ReactJS. I focus on building scalable, efficient solutions and have a proven track record in:
+            <br />I am <span className="purple">Senior Full Stack Engineer</span> with <span className="purple">7+ years</span> of experience specializing in <span className="purple">Ruby on Rails and ReactJS</span>. I focus on building scalable, efficient solutions and have a proven track record in:
             <br />
             <ul>
               <li className="about-activity">
-                <ImPointRight /> <b>System Migration:</b> Successfully migrated legacy payment APIs to Stripe Payment Intent API for 3DS compliance and led major Rails version upgrades (4 to 6).
+                <ImPointRight /> <span className="purple">System Migration:</span> Successfully migrated legacy payment APIs to Stripe Payment Intent API for 3DS compliance and led major Rails version upgrades (4 to 6).
               </li>
+              <br />
               <li className="about-activity">
-                <ImPointRight /> <b>High-Impact Features:</b> Implemented complex features from scratch, including Bulk Edit functionality for event configurations and crypto token exchange.
+                <ImPointRight /> <span className="purple">High-Impact Features:</span> Implemented complex features from scratch, including Bulk Edit functionality for event configurations and crypto token exchange.
               </li>
+              <br />
               <li className="about-activity">
-                <ImPointRight /> <b>Technical Stack:</b> Expertise across the full stack utilizing GraphQL, Postgres, MongoDB, Docker, and Kubernetes.
+                <ImPointRight /> <span className="purple">Technical Stack:</span> Expertise across the full stack utilizing <span className="purple">GraphQL, Postgres, MongoDB, Docker, and Kubernetes</span>.
               </li>
             </ul>
+            <br />
             Committed to maintaining clean, well-organized codebases and delivering high-quality software
             <br />
             Apart from coding, some other activities that I love to do!
@@ -41,9 +41,8 @@ function AboutCard() {
           </ul>
 
           <p style={{ marginBlockEnd: 0, color: "rgb(155 126 172)" }}>
-            "Build the innovation by famous tool i.e. Programming!" &#x1F920;
+            "Building the innovations by famous tool i.e. Programming!"
           </p>
-          <footer className="blockquote-footer">Ankur Gupta</footer>
         </blockquote>
       </Card.Body>
     </Card>
