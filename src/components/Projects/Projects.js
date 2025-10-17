@@ -7,8 +7,11 @@ import zeehaus from "../../Assets/Projects/zeehaus.png";
 import hyrr from "../../Assets/Projects/hyrr.png";
 import nfhs from "../../Assets/Projects/nfhs.png";
 import musicmayhem from "../../Assets/Projects/musicmayhem.png";
-import blogspot from "../../Assets/Projects/blogspot.png";
 import hyrrAdmin from "../../Assets/Projects/hyrrAdmin.png";
+import bulkedits from "../../Assets/Projects/bulkedits.png"
+import discountcodes from "../../Assets/Projects/discountcodes.png"
+import paymentplans from "../../Assets/Projects/paymentplans.png"
+import teamedglobal from "../../Assets/Projects/teamedglobal.png"
 
 function Projects() {
   return (
@@ -24,11 +27,51 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={musicmayhem}
+              imgPath={discountcodes}
               isBlog={false}
-              title="Music Mayhem"
-              description="Music Mayhem is a music quiz multiplayer game where players have to guess the Music details like title, artist and year of release by listening the song"
-              link="https://gomayhem.com"
+              title="Discount Codes (universe.com)"
+              description="Implemented a major improvement for discount code configuration, enabling event hosts to customize code availability and activation based on specific date ranges, time ranges, and selected weekdays."
+              link="https://support.universe.com/hc/en-us/articles/360006857832-Create-and-manage-discount-codes#h_01F2SZV1NZJY7WFHFN2VCTAQA2"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={bulkedits}
+              isBlog={false}
+              title="Bulk Edits (universe.com)"
+              description="Implemented the powerful Bulk Edit feature, enabling hosts to efficiently customize ticket price, quantity, availability, and timeslot capacity for numerous timeslots simultaneously, using specific filters for date ranges, time ranges, and weekdays."
+              link="https://support.universe.com/hc/en-us/articles/4407663275405-Customizing-Tickets-Per-Timeslot-on-a-Timed-Entry-Event"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={paymentplans}
+              isBlog={false}
+              title="Payment Plans (universe.com)"
+              description="Successfully managed a major release by migrating the Payment Plan feature from the deprecated Stripe Charges API to the modern Payment Intent API to implement 3D Secure (3DS) support for ticket installment payments, enhancing security and compliance."
+              link="https://support.universe.com/hc/en-us/articles/360002388191-Set-up-a-payment-plan-for-your-event"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={teamedglobal}
+              isBlog={false}
+              title="Teamed Global"
+              description="An HR Management tool designed to manage employee payroll and leave administration. This critical system handles payments for Multinational Corporations (MNCs), requiring robust currency conversion functionality to process multi-currency transactions accurately."
+              link="https://www.teamed.global"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={nfhs}
+              isBlog={false}
+              title="NFHS SSO, NFHS MMS, NFHS Rulebook"
+              description="Contributed to the NFHS suite of applications (Sports Education, Coaching, and Membership). Key achievements include implementing Single Sign-On (SSO) via OpenID Connect, executing a major Ruby/Rails version upgrade for NFHS MMS, and customizing the Active Admin panel for the NFHS Rulebook to streamline bulk administrative operations."
+              link="https://nfhs.org"
             />
           </Col>
 
@@ -37,18 +80,18 @@ function Projects() {
               imgPath={zeehaus}
               isBlog={false}
               title="Zeehaus"
-              description="Zeehaus is the digital platform to buy, sell, and invest in real estate. zeehuas reducing the cost of homeownership for buyers and investors, connects buyers and sellers with agents to simplify a real estate transaction"
+              description="Contributed to the Zeehaus real estate platform, focusing on the core business logic for buying and selling properties. This included handling payment integrations via the Synapse API. Additionally, I engineered the entire exchange logic from scratch for a cryptocurrency token based on the Stellar blockchain."
               link="https://zeehaus.com"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={hyrr}
+              imgPath={musicmayhem}
               isBlog={false}
-              title="HYRR"
-              description="Seeing the real candidate or the 'in person' experience with the candidate is critical to make a hiring decision. With short videos upfront in the hiring process instead of CVs, the funnel quality is significantly improved and there are no 'surprises' during actual interviews."
-              link="https://hyrr.co"
+              title="Music Mayhem"
+              description="For the Music Mayhem Trivia music quiz game, I resolved major production bugs that were interrupting song playback and causing inaccurate score calculations. I also modified the core scoring logic to register points as soon as the user begins typing and implemented a player-name 'reward wheel' to award random players."
+              link="https://gomayhem.com"
             />
           </Col>
 
@@ -64,21 +107,11 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={nfhs}
+              imgPath={hyrr}
               isBlog={false}
-              title="NFHS"
-              description="The National Federation of State High School Associations is the body that writes the rules of competition for most high school sports and activities in the United States. NFHS's headquarters are located in White River State Park in Indianapolis, Indiana."
-              link="https://nfhs.org"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={blogspot}
-              isBlog={false}
-              title="Blogspot"
-              description="Blogspot is blogging website where user can write read blogs, user can also follow each others."
-              link="https://sampleappank.herokuapp.com/"
+              title="HYRR"
+              description="Seeing the real candidate or the 'in person' experience with the candidate is critical to make a hiring decision. With short videos upfront in the hiring process instead of CVs, the funnel quality is significantly improved and there are no 'surprises' during actual interviews."
+              link="https://hyrr.co"
             />
           </Col>
         </Row>
