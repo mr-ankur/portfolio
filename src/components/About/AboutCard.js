@@ -10,8 +10,18 @@ function AboutCard() {
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className="purple">Ankur Gupta </span>
             from <span className="purple"> Uttar Pradesh, India.</span>
-            <br />I am Senior Software Developer at Ticketmaster India.
+            <br />I am Senior Full Stack Engineer with 7+ years of experience specializing in Ruby on Rails and ReactJS. I focus on building scalable, efficient solutions and have a proven track record in:
             <br />
+            <ul>
+              <b>System Migration:</b> Successfully migrated legacy payment APIs to Stripe Payment Intent API for 3DS compliance and led major Rails version upgrades (4 to 6).
+            </ul>
+            <ul>
+              <b>High-Impact Features:</b> Implemented complex features from scratch, including Bulk Edit functionality for event configurations and crypto token exchange.
+            </ul>
+            <ul>
+              <b>Technical Stack:</b> Expertise across the full stack utilizing GraphQL, Postgres, MongoDB, Docker, and Kubernetes.
+            </ul>
+            Committed to maintaining clean, well-organized codebases and delivering high-quality software
             <br />
             Apart from coding, some other activities that I love to do!
           </p>
