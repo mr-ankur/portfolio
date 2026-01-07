@@ -25,7 +25,7 @@ function Home2() {
               <br />
               <br />I am fluent in classics like
               <i>
-                <b className="purple"> Ruby on Rails, ReactJS, NextJS, Redis, REST API, GraphQL, MongoDB and Postgres. </b>
+                <b className="purple"> Ruby on Rails, Golang, ReactJS, NextJS, Redis, REST API, GraphQL, MongoDB, and Postgres. </b>
               </i>
               <br />
               <br />
@@ -38,7 +38,7 @@ function Home2() {
               <br />
               <br />
               Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Ruby on Rails</b> and
+              with <b className="purple">Ruby on Rails, Golang,</b> and
               <i>
                 <b className="purple"> javascript Library and Frameworks</b>
               </i>

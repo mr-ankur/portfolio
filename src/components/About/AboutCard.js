@@ -9,7 +9,7 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
             <br />
-            I am <span className="purple">Senior Full Stack Engineer</span> with <span className="purple">{new Date().getYear() - 118}+ years</span> of experience specializing in <span className="purple">Ruby on Rails and ReactJS</span>. I focus on building scalable, efficient solutions and have a proven track record in:
+            I am <span className="purple">Senior Full Stack Engineer</span> with <span className="purple">{new Date().getYear() - 118}+ years</span> of experience specializing in <span className="purple">Ruby on Rails, Golang, and ReactJS</span>. I focus on building scalable, efficient solutions and have a proven track record in:
             <br />
             <ul>
               <li className="about-activity">

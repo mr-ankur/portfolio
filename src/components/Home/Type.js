@@ -6,7 +6,7 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Senior Full Stack Engineer | Ruby on Rails | ReactJS",
+          "Senior Full Stack Engineer | Ruby on Rails | Golang | ReactJS",
         ],
         autoStart: true,
         loop: true,
