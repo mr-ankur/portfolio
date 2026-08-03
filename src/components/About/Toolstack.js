@@ -3,29 +3,36 @@ import { Col, Row } from "react-bootstrap";
 import {
   SiLinux,
   SiVisualstudiocode,
-  SiEclipseide,
+  SiGit,
   SiPostman,
-  SiHeroku,
+  SiAmazonaws,
+  SiGooglecloud,
+  SiJenkins,
+  SiGrafana,
+  SiDatadog,
 } from "react-icons/si";
+
+const tools = [
+  { name: "Linux", Icon: SiLinux },
+  { name: "VS Code", Icon: SiVisualstudiocode },
+  { name: "Git", Icon: SiGit },
+  { name: "Postman", Icon: SiPostman },
+  { name: "AWS", Icon: SiAmazonaws },
+  { name: "Google Cloud", Icon: SiGooglecloud },
+  { name: "Jenkins", Icon: SiJenkins },
+  { name: "Grafana", Icon: SiGrafana },
+  { name: "Datadog", Icon: SiDatadog },
+];
 
 function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiLinux />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiEclipseide />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostman />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiHeroku />
-      </Col>
+      {tools.map(({ name, Icon }) => (
+        <Col xs={4} md={2} className="tech-icons" key={name}>
+          <Icon aria-hidden="true" />
+          <span className="tech-label">{name}</span>
+        </Col>
+      ))}
     </Row>
   );
 }

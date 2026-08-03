@@ -1,70 +1,22 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiFillFacebook,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import SocialLinks from "./SocialLinks";
+import profile from "../data/profile";
 
 function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <Container fluid className="footer">
+    <Container fluid className="footer" as="footer">
       <Row>
-        <Col md="12" className="footer-body">
-          <ul className="footer-icons">
-            <li className="social-icons">
-              <a
-                href="https://github.com/mr-ankur"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillGithub />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://www.linkedin.com/in/its-ankur-gupta/"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedinIn />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://twitter.com/its_ankur_gupta"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiOutlineTwitter />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://www.facebook.com/meankurgupta"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillFacebook />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://www.instagram.com/its_ankur_gupta/"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillInstagram />
-              </a>
-            </li>
-          </ul>
+        <Col md="4" className="footer-copywright">
+          <h3>Designed and developed by {profile.name}</h3>
+        </Col>
+        <Col md="4" className="footer-copywright">
+          <h3>Copyright © {year}</h3>
+        </Col>
+        <Col md="4" className="footer-body">
+          <SocialLinks className="footer-icons" style={{ color: "white" }} />
         </Col>
       </Row>
     </Container>

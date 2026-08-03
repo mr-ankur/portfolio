@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ankur Gupta — Resume</title>
+<style>
+  :root {
+    --navy:      #1f3864;
+    --navy-soft: #2e5c8a;
+    --ink:       #24303f;
+    --ink-soft:  #47566a;
+    --rule:      #c3d4e6;
+    --side-bg:   #e4edf7;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    font-size: 9.7pt;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* The sidebar is painted as a full-height band on every page so the
+     two-column look survives the page break. */
+  .page::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 66mm;
+    background: var(--side-bg);
+    z-index: 0;
+  }
+
+  .main {
+    position: absolute;
+    top: 0; left: 0;
+    width: 144mm;
+    height: 297mm;
+    padding: 13mm 8mm 10mm 14mm;
+    z-index: 1;
+  }
+
+  .side {
+    position: absolute;
+    top: 0; right: 0;
+    width: 66mm;
+    height: 297mm;
+    padding: 13mm 11mm 10mm 7mm;
+    z-index: 1;
+  }
+
+  .page--2 .main,
+  .page--2 .side { padding-top: 12mm; }
+
+  /* ---------- Masthead ---------- */
+
+  .name {
+    font-size: 25pt;
+    font-weight: 600;
+    letter-spacing: 0.055em;
+    color: var(--navy);
+    line-height: 1.05;
+  }
+  .name span { font-weight: 300; color: var(--navy-soft); }
+
+  .subtitle {
+    margin-top: 3mm;
+    font-size: 8.7pt;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--navy-soft);
+    line-height: 1.47;
+    white-space: nowrap;
+  }
+
+  .masthead-rule {
+    margin: 4mm 0 5.5mm;
+    border: 0;
+    border-top: 1.1pt solid var(--navy-soft);
+  }
+
+  /* ---------- Section headings ---------- */
+
+  h2 {
+    font-size: 9.8pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 3mm;
+  }
+
+  h2 .qual {
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-size: 8.6pt;
+    color: var(--ink-soft);
+  }
+
+  .main h2 { margin-top: 6.5mm; }
+  .main h2:first-of-type { margin-top: 0; }
+
+  .side h2 {
+    margin-top: 6.5mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 0.9pt solid var(--rule);
+  }
+  .side h2:first-child { margin-top: 0; }
+
+  .objective { color: var(--ink-soft); text-align: justify; }
+
+  /* ---------- Experience ---------- */
+
+  .job { margin-bottom: 5.1mm; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4mm;
+  }
+
+  .job-title {
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .job-dates {
+    font-size: 8.6pt;
+    font-weight: 500;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .job-company {
+    font-size: 9.4pt;
+    font-weight: 500;
+    color: var(--navy-soft);
+    margin: 0.5mm 0 1.7mm;
+  }
+  .job-company .client {
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  /* Header for the role that carries over the page break. */
+  .cont-head {
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2mm;
+  }
+  .cont-head .qual { font-size: 8.4pt; }
+
+  .job ul { list-style: none; }
+
+  .job li {
+    position: relative;
+    padding-left: 4.2mm;
+    margin-bottom: 1.35mm;
+    color: var(--ink-soft);
+  }
+
+  .job li::before {
+    content: "";
+    position: absolute;
+    left: 0.4mm;
+    top: 1.7mm;
+    width: 1.5mm;
+    height: 1.5mm;
+    border-radius: 50%;
+    background: var(--navy-soft);
+  }
+
+  /* Replaces the repeated "For all the above contributions I utilized my
+     expertise of ..." sentence that ran under every role. */
+  .stack {
+    margin-top: 1.8mm;
+    padding-top: 1.4mm;
+    border-top: 0.7pt dotted var(--rule);
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+  }
+  .stack b {
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 7.8pt;
+  }
+
+  /* ---------- Sidebar ---------- */
+
+  .side ul { list-style: none; }
+
+  .side li {
+    position: relative;
+    padding-left: 3.6mm;
+    margin-bottom: 1.5mm;
+    color: var(--ink-soft);
+    font-size: 8.9pt;
+    line-height: 1.42;
+  }
+
+  .side li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.55mm;
+    width: 1.3mm;
+    height: 1.3mm;
+    border-radius: 50%;
+    background: var(--navy-soft);
+  }
+
+  .contact { font-size: 8.9pt; color: var(--ink-soft); line-height: 1.6; }
+  .contact div { margin-bottom: 1.2mm; word-break: break-word; }
+  .contact a { color: var(--ink-soft); text-decoration: none; }
+  .contact .phone { font-weight: 600; color: var(--ink); }
+
+  /* Grouped skills read better than one long bullet list, and they fill the
+     sidebar column instead of leaving it half empty. */
+  .skill-group { margin-bottom: 2.4mm; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group.group-spaced { margin-top: 3mm; }
+
+  .skill-group .label {
+    font-size: 7.9pt;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--navy-soft);
+    margin-bottom: 0.4mm;
+  }
+
+  .skill-group .items {
+    font-size: 8.8pt;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  .side .edu-item { margin-bottom: 2.3mm; }
+  .side .edu-item .degree {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 9pt;
+  }
+  .side .edu-item .field { font-size: 8.8pt; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="page">
+  <div class="main">
+    <div class="name">ANKUR <span>GUPTA</span></div>
+    <div class="subtitle">Senior Software Engineer &nbsp;|&nbsp; Ruby on Rails &nbsp;|&nbsp; Golang &nbsp;|&nbsp; ReactJS</div>
+    <hr class="masthead-rule">
+
+    <h2>Career Objective</h2>
+    <p class="objective">
+      Full stack engineer with 8+ years across Ruby on Rails, Golang and ReactJS, now working
+      on cloud data platforms. I focus on scalable, efficient solutions — payments,
+      authentication and high-volume event tooling — and on leaving codebases better than I
+      found them.
+    </p>
+
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Senior Software Engineer</div>
+        <div class="job-dates">May 2026 – Present</div>
+      </div>
+      <div class="job-company">Pattern</div>
+      <ul>
+        <li>Contribute to Ruby on Rails, Golang and Python applications, reviewing changes and taking ownership of delivery.</li>
+        <li>Work across the AWS data platform — Snowflake, Trino, Spark SQL, Apache Iceberg and Airbyte — building and maintaining data pipelines in Python and Golang.</li>
+        <li>Monitor platform health and query performance with Grafana and Datadog, and apply Claude to accelerate development and code review.</li>
+      </ul>
+      <div class="stack"><b>Stack</b> &nbsp;Golang · Python · Ruby on Rails · AWS · Snowflake · Trino · Spark SQL · Apache Iceberg · Airbyte · Postgres · Grafana · Datadog · Claude</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Application Development Module Lead</div>
+        <div class="job-dates">Oct 2025 – May 2026</div>
+      </div>
+      <div class="job-company">Telus Digital</div>
+      <ul>
+        <li>Led the maintenance and development of Ruby on Rails applications by resolving critical security and production issues and implementing key features.</li>
+        <li>Defined technical requirements and guided architectural decisions to ensure stability, compliance and timely project delivery.</li>
+      </ul>
+      <div class="stack"><b>Stack</b> &nbsp;Leadership · Golang · Ruby on Rails · ReactJS · JavaScript · TypeScript · GraphQL · Postgres · MySQL · GCP · Docker · Kubernetes</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Senior Full Stack Engineer</div>
+        <div class="job-dates">Oct 2022 – Oct 2025</div>
+      </div>
+      <div class="job-company">Ticketmaster India <span class="client">— Universe.com</span></div>
+      <ul>
+        <li>Built features across the Universe.com live-events platform in Ruby on Rails and Golang, owning them from technical design through production release.</li>
+        <li>Contributed to a major release by migrating from the legacy Stripe Charges API to the Payment Intent API for 3DS requirements in the Europe region.</li>
+        <li>Implemented the Bulk Edit feature from scratch, allowing event hosts to modify ticket price, quantity, availability and timeslot capacity across many timeslots in one go.</li>
+        <li>Implemented a major improvement to discount code configuration, letting hosts configure codes for specific dates, time ranges and selected days of the week.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="side">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div><a href="mailto:ankur11.kmr@gmail.com">ankur11.kmr@gmail.com</a></div>
+      <div class="phone">+91 87075 73399</div>
+      <div><a href="https://www.linkedin.com/in/its-ankur-gupta">linkedin.com/in/its-ankur-gupta</a></div>
+      <div><a href="https://ankurgupta.netlify.app">ankurgupta.netlify.app</a></div>
+      <div>Lucknow, UP, India</div>
+    </div>
+
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div class="degree">M.Tech</div>
+      <div class="field">Computer Science and Engineering</div>
+    </div>
+    <div class="edu-item">
+      <div class="degree">B.Tech</div>
+      <div class="field">Computer Science and Engineering</div>
+    </div>
+
+    <h2>Technical Skills</h2>
+
+    <div class="skill-group">
+      <div class="label">Backend</div>
+      <div class="items">Ruby on Rails, Golang, Python, Spring Boot (Java), RESTful and GraphQL APIs</div>
+    </div>
+    <div class="skill-group">
+      <div class="label">Frontend</div>
+      <div class="items">ReactJS, Next.js, TypeScript, JavaScript, EmberJS, CoffeeScript</div>
+    </div>
+    <div class="skill-group">
+      <div class="label">Databases</div>
+      <div class="items">Postgres, MySQL, MongoDB, Redis</div>
+    </div>
+    <div class="skill-group">
+      <div class="label">Data Platform</div>
+      <div class="items">Snowflake, Trino, Spark SQL, Apache Iceberg, Airbyte</div>
+    </div>
+    <div class="skill-group">
+      <div class="label">Cloud &amp; DevOps</div>
+      <div class="items">AWS, Google Cloud Platform, Docker, Kubernetes, Helm, Jenkins, Heroku, Netlify</div>
+    </div>
+    <div class="skill-group">
+      <div class="label">Observability</div>
+      <div class="items">Grafana, Datadog</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="page page--2">
+  <div class="main">
+    <h2>Experience <span class="qual">(continued)</span></h2>
+
+    <div class="job">
+      <div class="job-company cont-head">
+        Senior Full Stack Engineer, Ticketmaster India
+        <span class="client">— Universe.com</span>
+        <span class="qual">(continued)</span>
+      </div>
+      <ul>
+        <li>Successfully managed payment collection projects, ensuring timely delivery while optimizing system performance.</li>
+        <li>Maintained clean, well-organized codebases with comprehensive test coverage.</li>
+      </ul>
+      <div class="stack"><b>Stack</b> &nbsp;Golang · Ruby on Rails · ReactJS · JavaScript · TypeScript · GraphQL · MongoDB · Postgres · MySQL · GCP · Docker · Kubernetes</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Senior Software Developer</div>
+        <div class="job-dates">May 2021 – Oct 2022</div>
+      </div>
+      <div class="job-company">Haptiq (Webonise)</div>
+      <ul>
+        <li>Led multiple frontend and backend projects, overseeing release management and collaborating with DevOps and QA teams to ensure timely delivery.</li>
+        <li>Integrated OAuth 2.0 and OpenID Connect for enhanced authentication, delivering Single Sign-On across the NFHS suite of applications.</li>
+        <li>Upgraded Rails from version 4 to 5 and then to 6, implementing security best practices using Brakeman and RuboCop.</li>
+        <li>Implemented a major improvement to currency exchange and time zone handling for Teamed Global, generating multi-currency employee payrolls for multinational organizations.</li>
+        <li>Customized the Active Admin panel for the NFHS Rulebook to streamline bulk administrative operations.</li>
+      </ul>
+      <div class="stack"><b>Stack</b> &nbsp;Ruby on Rails · ReactJS · JavaScript · TypeScript · REST APIs · MongoDB · Postgres · MySQL · AWS · Jenkins · Heroku · Netlify · Docker</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Software Engineer</div>
+        <div class="job-dates">Mar 2019 – May 2021</div>
+      </div>
+      <div class="job-company">AkaruiLabs India</div>
+      <ul>
+        <li>Developed deep expertise in Ruby on Rails and ReactJS, independently managing projects and collaborating directly with clients.</li>
+        <li>Engineered crypto token exchange functionality from scratch for Zeehaus, built on the Stellar blockchain, alongside payment integrations via the Synapse API.</li>
+        <li>Fixed major production bugs affecting song playback and score calculation on the Music Mayhem trivia game, and reworked the scoring logic to register points as the user begins typing.</li>
+        <li>Conducted unit and user acceptance testing to ensure high-quality deliverables.</li>
+      </ul>
+      <div class="stack"><b>Stack</b> &nbsp;Ruby on Rails · ReactJS · JavaScript · REST APIs · MongoDB · Postgres · Heroku</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Software Engineer Intern</div>
+        <div class="job-dates">Mar 2018 – Feb 2019</div>
+      </div>
+      <div class="job-company">Unihyr Labs Pvt Ltd</div>
+      <ul>
+        <li>Developed backend features for a Spring Boot application in Java.</li>
+        <li>Built the corresponding ReactJS frontend, working across the full stack from API to user interface.</li>
+      </ul>
+      <div class="stack"><b>Stack</b> &nbsp;Java · Spring Boot · ReactJS · JavaScript · REST APIs</div>
+    </div>
+  </div>
+
+  <div class="side">
+    <h2>Technical Skills <span class="qual">(continued)</span></h2>
+
+    <div class="skill-group">
+      <div class="label">Security &amp; Auth</div>
+      <div class="items">OAuth 2.0, OpenID Connect, PCI DSS</div>
+    </div>
+    <div class="skill-group">
+      <div class="label">AI Tools</div>
+      <div class="items">Claude, Augment AI, GitHub Copilot, ChatGPT</div>
+    </div>
+    <div class="skill-group">
+      <div class="label">Tooling</div>
+      <div class="items">Git, JIRA, Asana, ClickUp</div>
+    </div>
+
+    <h2>Certifications</h2>
+
+    <div class="skill-group">
+      <div class="label">Amazon Web Services</div>
+    </div>
+    <ul>
+      <li>Cloud Practitioner Essentials</li>
+      <li>Well-Architected Framework</li>
+      <li>IAM Management</li>
+      <li>Auto Scaling</li>
+      <li>Organizations and Roles</li>
+    </ul>
+
+    <div class="skill-group group-spaced">
+      <div class="label">Engineering</div>
+    </div>
+    <ul>
+      <li>Ruby on Rails 7.0 Essentials Training</li>
+      <li>Building a GraphQL Project with ReactJS</li>
+      <li>Go Complete Guide</li>
+      <li>Learning Kubernetes</li>
+      <li>PCI DSS Compliance</li>
+    </ul>
+
+    <div class="skill-group group-spaced">
+      <div class="label">Leadership</div>
+    </div>
+    <ul>
+      <li>Practical Leadership Skills</li>
+      <li>Leading and Working in Teams</li>
+      <li>Time Management</li>
+    </ul>
+
+    <h2>Achievements</h2>
+    <ul>
+      <li>Performance recognition certificate at Ticketmaster</li>
+      <li>Qualified GATE CSE 2019</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

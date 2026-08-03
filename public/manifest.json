@@ -1,15 +1,18 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Ankur Gupta",
+  "name": "Ankur Gupta | Senior Full Stack Engineer",
+  "description": "Portfolio of Ankur Gupta, a Senior Full Stack Engineer working with Ruby on Rails, Golang and ReactJS.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "favicon.png",
+      "sizes": "200x200",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0c0513",
+  "background_color": "#0c0513"
 }

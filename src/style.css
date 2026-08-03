@@ -239,12 +239,16 @@ html {
     transform: rotate(0deg);
   }
 }
+/* The particle canvas sits behind everything, so hero buttons and links stay
+   clickable without pushing whole sections behind the page. */
 #tsparticles {
   position: fixed !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   width: 100%;
   height: 100%;
+  z-index: -1 !important;
+  pointer-events: none !important;
 }
 
 .home-header {
@@ -253,7 +257,6 @@ html {
 
 .home-section {
   position: relative;
-  z-index: -1;
   background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
   background-position: top center;
   background-repeat: no-repeat;
@@ -547,18 +550,29 @@ html {
 }
 
 .tech-icons {
-  font-size: 4.5em !important;
+  font-size: 3.6em !important;
   margin: 15px !important;
-  padding: 10px !important;
+  padding: 18px 10px !important;
   opacity: 0.93 !important;
   border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
-  vertical-align: middle !important;
   text-align: center !important;
   border-radius: 5px !important;
-  display: table !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
   box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
+}
+
+.tech-label {
+  font-size: 0.24em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.2;
 }
 
 @media (max-width: 767px) {
@@ -736,4 +750,332 @@ html {
 }
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* --------- */
+/* Accessibility helpers */
+/* --------- */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000000;
+  padding: 12px 20px;
+  background: #6d20c5;
+  color: #fff;
+  border-radius: 0 0 6px 0;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+  color: #fff;
+}
+
+/* Bootstrap 4 strips outlines from buttons; put a visible ring back for
+   keyboard users without showing it on mouse clicks. */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.filter-chip:focus-visible,
+.navbar-toggler:focus-visible {
+  outline: 2px solid #d7a4f7 !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+
+.route-fallback {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbb6dd;
+  font-size: 1.1em;
+}
+
+/* --------- */
+/* Home hero additions */
+/* --------- */
+
+.home-type {
+  padding: 40px 0 20px 50px;
+  text-align: left;
+  min-height: 90px;
+}
+
+.home-blurb {
+  padding-left: 50px;
+  padding-right: 20px;
+  max-width: 34em;
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.home-cta {
+  padding-left: 50px;
+  padding-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+@media (max-width: 767px) {
+  .home-type {
+    padding-left: 20px;
+    min-height: 120px;
+  }
+
+  .home-blurb,
+  .home-cta {
+    padding-left: 20px;
+  }
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.contact-location {
+  padding-top: 18px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* --------- */
+/* Tags */
+/* --------- */
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 18px;
+}
+
+.tag {
+  font-size: 0.78em;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(199, 112, 240, 0.45);
+  background: rgba(147, 76, 206, 0.16);
+  color: #e0cdf0;
+  white-space: nowrap;
+}
+
+/* --------- */
+/* Project filters */
+/* --------- */
+
+.project-intro {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 46em;
+  margin: 0 auto;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 28px 10px 0;
+}
+
+.filter-chip {
+  font-size: 0.92em;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(199, 112, 240, 0.5);
+  background: transparent;
+  color: #ddc9ee;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-chip:hover {
+  background: rgba(147, 76, 206, 0.28);
+  transform: translateY(-1px);
+}
+
+.filter-chip.is-active {
+  background: #623686;
+  border-color: #a24dd3;
+  color: #fff;
+}
+
+.filter-count {
+  padding-top: 16px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9em;
+}
+
+.project-card-view .card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-company {
+  font-size: 0.62em;
+  font-weight: 400;
+  color: #c770f0;
+}
+
+.project-card-view .card-text {
+  text-align: left;
+  font-size: 0.95em;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.project-card-view .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-view .card-body .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* --------- */
+/* Experience timeline */
+/* --------- */
+
+.timeline {
+  list-style: none;
+  padding: 0 0 30px;
+  margin: 30px 0 0;
+  text-align: left;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 34px 28px;
+  border-left: 2px solid #8a49a8;
+}
+
+.timeline-item:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  left: -8px;
+  top: 4px;
+  background: #fff;
+  border: 2px solid #8a49a8;
+}
+
+.timeline-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.timeline-role {
+  font-size: 1.15em;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
+}
+
+.timeline-period {
+  font-size: 0.88em;
+  color: rgba(255, 255, 255, 0.6);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline-badge {
+  font-size: 0.82em;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(147, 76, 206, 0.35);
+  border: 1px solid rgba(199, 112, 240, 0.5);
+  color: #eadcf7;
+}
+
+.timeline-company {
+  margin: 2px 0 12px;
+  font-weight: 600;
+}
+
+.timeline-highlights {
+  padding-left: 18px;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.timeline-highlights li {
+  padding-bottom: 8px;
+  line-height: 1.55;
+}
+
+/* --------- */
+/* 404 */
+/* --------- */
+
+.notfound {
+  text-align: center;
+  padding: 60px 20px 120px;
+}
+
+.notfound-code {
+  font-size: 6em;
+  font-weight: 700;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.notfound p {
+  color: rgba(255, 255, 255, 0.75);
+  padding-bottom: 20px;
+}
+
+/* --------- */
+/* Footer */
+/* --------- */
+
+.footer-copywright h3 {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.95em;
+}
+
+/* --------- */
+/* Reduced motion */
+/* --------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .wave {
+    animation: none !important;
+  }
+}
+
+.timeline-client {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
 }

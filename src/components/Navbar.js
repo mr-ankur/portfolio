@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import {
@@ -16,19 +16,27 @@ import {
 
 import { CgFileDocument } from "react-icons/cg";
 
+const navItems = [
+  { to: "/", label: "Home", Icon: AiOutlineHome },
+  { to: "/about", label: "About", Icon: AiOutlineUser },
+  { to: "/project", label: "Projects", Icon: AiOutlineFundProjectionScreen },
+  { to: "/resume", label: "Resume", Icon: CgFileDocument },
+];
+
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const { pathname } = useLocation();
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
+  useEffect(() => {
+    function scrollHandler() {
+      updateNavbar(window.scrollY >= 20);
     }
-  }
 
-  window.addEventListener("scroll", scrollHandler);
+    scrollHandler();
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
 
   return (
     <Navbar
@@ -38,11 +46,12 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand href="/">
-          <img src={logo} className="img-fluid logo" alt="brand" />
+        <Navbar.Brand as={Link} to="/" aria-label="Ankur Gupta — home">
+          <img src={logo} className="img-fluid logo" alt="Ankur Gupta logo" />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
+          aria-label="Toggle navigation menu"
           onClick={() => {
             updateExpanded(expand ? false : "expanded");
           }}
@@ -52,53 +61,30 @@ function NavBar() {
           <span></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
+          <Nav className="ml-auto" activeKey={pathname}>
+            {navItems.map(({ to, label, Icon }) => (
+              <Nav.Item key={to}>
+                <Nav.Link
+                  as={Link}
+                  to={to}
+                  eventKey={to}
+                  aria-current={pathname === to ? "page" : undefined}
+                  onClick={() => updateExpanded(false)}
+                >
+                  <Icon style={{ marginBottom: "2px" }} aria-hidden="true" />{" "}
+                  {label}
+                </Nav.Link>
+              </Nav.Item>
+            ))}
 
             <Nav.Item>
               <Nav.Link
                 href="https://sampleappank.herokuapp.com/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
+                <ImBlog style={{ marginBottom: "2px" }} aria-hidden="true" />{" "}
+                Blogs
               </Nav.Link>
             </Nav.Item>
 
@@ -106,10 +92,12 @@ function NavBar() {
               <Button
                 href="https://github.com/mr-ankur"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
                 className="fork-btn-inner"
               >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
+                <CgGitFork style={{ fontSize: "1.2em" }} aria-hidden="true" />{" "}
+                <AiFillStar style={{ fontSize: "1.1em" }} aria-hidden="true" />
               </Button>
             </Nav.Item>
           </Nav>

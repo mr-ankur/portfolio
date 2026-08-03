@@ -1,14 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiFillFacebook,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { AiOutlineDownload, AiOutlineMail } from "react-icons/ai";
+import SocialLinks from "../SocialLinks";
+import profile from "../../data/profile";
 
 function Home2() {
   return (
@@ -16,102 +13,75 @@ function Home2() {
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
+            <h2 style={{ fontSize: "2.6em" }}>
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
-            </h1>
+            </h2>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+              I build and maintain backend-heavy products end to end — payments,
+              authentication and high-volume event tooling — and I care about
+              leaving codebases better than I found them.
               <br />
-              <br />I am fluent in classics like
+              <br />
+              I work day to day in{" "}
               <i>
-                <b className="purple"> Ruby on Rails, Golang, ReactJS, NextJS, Redis, REST API, GraphQL, MongoDB, and Postgres. </b>
+                <b className="purple">
+                  Ruby on Rails, Golang, Python, ReactJS, Next.js, GraphQL,
+                  Postgres and MongoDB
+                </b>
               </i>
+              .
               <br />
               <br />
-              My field of Interest's are building new scalable &nbsp;
+              Right now I'm working on{" "}
               <i>
-                <b className="purple">Software Solutions</b> and
-                also in areas related to{" "}
-                <b className="purple">Exploring DevOps Architectures</b>
-              </i>
-              <br />
-              <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Ruby on Rails, Golang,</b> and
+                <b className="purple">cloud data platforms</b>
+              </i>{" "}
+              — AWS, Snowflake, Trino, Spark SQL, Apache Iceberg and Airbyte —
+              after years on{" "}
               <i>
-                <b className="purple"> javascript Library and Frameworks</b>
+                <b className="purple">payments and authentication</b>
               </i>
-              &nbsp; like
-              <i>
-                <b className="purple"> React.js and Next.js</b>
-              </i>
+              : Stripe payment migrations, OpenID Connect SSO, and bulk-editing
+              tools used by live event hosts.
             </p>
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <img src={myImg} className="img-fluid" alt="Illustrated avatar" />
             </Tilt>
           </Col>
         </Row>
+
         <Row>
           <Col md={12} className="home-about-social">
-            <h1>FIND ME ON</h1>
+            <h2>GET IN TOUCH</h2>
             <p>
-              Feel free to <span className="purple">connect </span>with me
+              I'm open to interesting backend and full stack work. The fastest
+              way to reach me is <span className="purple">email</span>.
             </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/mr-ankur"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/its-ankur-gupta/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://twitter.com/its_ankur_gupta"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiOutlineTwitter />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.facebook.com/meankurgupta"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiFillFacebook />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.instagram.com/its_ankur_gupta/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiFillInstagram />
-                </a>
-              </li>
-            </ul>
+
+            <div className="contact-actions">
+              <Button variant="primary" href={`mailto:${profile.email}`}>
+                <AiOutlineMail aria-hidden="true" />
+                &nbsp;{profile.email}
+              </Button>
+              <Button
+                variant="primary"
+                href={profile.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiOutlineDownload aria-hidden="true" />
+                &nbsp;Download CV
+              </Button>
+            </div>
+
+            <p className="contact-location">Based in {profile.location}</p>
+
+            <SocialLinks
+              className="home-about-social-links"
+              linkClassName="icon-colour home-social-icons"
+            />
           </Col>
         </Row>
       </Container>
