@@ -1,0 +1,10 @@
+# react-scripts 4 builds on webpack 4, which uses MD4 hashing. On Node 17+
+# that fails against OpenSSL 3 unless --openssl-legacy-provider is set, and the
+# npm scripts set it. Node 16 rejects that flag outright, so the build node
+# version has to be pinned at 18 to match .nvmrc and package.json engines.
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "18"
