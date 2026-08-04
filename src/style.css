@@ -342,22 +342,28 @@ html {
   color: white !important;
 }
 
+/* Flex + gap keeps the row centred and evenly spaced at every width. The old
+   inline-block + per-icon padding left a stranded icon when the row wrapped. */
 .home-about-social-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
   justify-content: center !important;
-  padding-top: 15px !important;
-  display: inline-block !important;
-  position: relative !important;
-  padding-inline-start: 0 !important;
+  align-items: center !important;
+  /* Fluid gap so all five icons stay on one row down to a 320px viewport. */
+  gap: clamp(10px, 3.5vw, 18px) !important;
+  padding: 15px 0 0 !important;
+  margin: 0 auto !important;
+  list-style: none !important;
 }
 
 .home-social-icons {
   position: relative !important;
-  display: inline-block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   width: 40px !important;
   height: 40px !important;
-  text-align: center !important;
   font-size: 1.2em !important;
-  line-height: 2em !important;
   background: rgba(255, 255, 255, 0.972) !important;
   border-radius: 50% !important;
   transition: 0.5s !important;
@@ -388,10 +394,11 @@ html {
   text-shadow: 0 0 2px #87209e;
 }
 
+/* Spacing comes from the parent's gap, so the item itself carries no padding
+   and the icons stay evenly spaced when the row wraps. */
 .social-icons {
-  display: inline-block !important;
-  padding-right: 15px;
-  padding-left: 15px;
+  display: flex !important;
+  padding: 0 !important;
 }
 
 .icon-colour {
@@ -432,9 +439,20 @@ html {
   margin-bottom: 0.5em !important;
 }
 .footer-icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: clamp(14px, 5vw, 22px) !important;
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
   padding: 0 !important;
+  list-style: none !important;
+}
+
+.footer-icons a {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 1.3em !important;
 }
 
 .blockquote-footer {
