@@ -33,8 +33,9 @@ function Home() {
               </div>
 
               <p className="home-blurb">
-                {yearsOfExperience()}+ years building payments, authentication
-                and event platforms with Rails, Go and React.
+                {yearsOfExperience()}+ years of full stack development — Ruby on
+                Rails and Golang on the backend, ReactJS and Next.js on the
+                front.
               </p>
 
               <div className="home-cta">

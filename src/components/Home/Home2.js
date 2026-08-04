@@ -17,32 +17,42 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h2>
             <p className="home-about-body">
-              I build and maintain backend-heavy products end to end — payments,
-              authentication and high-volume event tooling — and I care about
-              leaving codebases better than I found them.
+              I'm a{" "}
+              <i>
+                <b className="purple">full stack engineer</b>
+              </i>
+              . I design and build backend services in{" "}
+              <i>
+                <b className="purple">Ruby on Rails</b>
+              </i>{" "}
+              and{" "}
+              <i>
+                <b className="purple">Golang</b>
+              </i>
+              , and the interfaces on top of them in{" "}
+              <i>
+                <b className="purple">ReactJS</b>
+              </i>{" "}
+              and{" "}
+              <i>
+                <b className="purple">Next.js</b>
+              </i>{" "}
+              — owning features from the schema through to the screen.
               <br />
               <br />
-              I work day to day in{" "}
+              Around that core I work with{" "}
               <i>
                 <b className="purple">
-                  Ruby on Rails, Golang, Python, ReactJS, Next.js, GraphQL,
-                  Postgres and MongoDB
+                  Python, TypeScript, GraphQL, Postgres, MongoDB and Redis
                 </b>
               </i>
-              .
+              , and I care about leaving codebases better than I found them.
               <br />
               <br />
-              Right now I'm working on{" "}
-              <i>
-                <b className="purple">cloud data platforms</b>
-              </i>{" "}
-              — AWS, Snowflake, Trino, Spark SQL, Apache Iceberg and Airbyte —
-              after years on{" "}
-              <i>
-                <b className="purple">payments and authentication</b>
-              </i>
-              : Stripe payment migrations, OpenID Connect SSO, and bulk-editing
-              tools used by live event hosts.
+              I've applied that across payments, authentication and high-volume
+              event tooling — Stripe payment migrations, OpenID Connect SSO, and
+              bulk-editing tools used by live event hosts — and most recently
+              across cloud data platforms on AWS.
             </p>
           </Col>
           <Col md={4} className="myAvtar">

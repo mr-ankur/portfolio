@@ -17,8 +17,16 @@ window.addEventListener('load', function(){
       var used = last ? (last.offsetTop + last.offsetHeight) : 0;
       var avail = el.clientHeight - parseFloat(getComputedStyle(el).paddingBottom);
       out.push('p'+(p+1)+' '+el.className.padEnd(10)+' fill='+Math.round(used/avail*100)+'%'+
-               (el.scrollHeight > el.clientHeight+1 ? '  *** OVERFLOW ***' : ''));
+               (el.scrollHeight > el.clientHeight+1 ? '  *** VERTICAL OVERFLOW ***' : ''));
     });
+  });
+  // nowrap text inside an overflow:hidden column truncates silently, so check
+  // every element's width against the column it sits in.
+  document.querySelectorAll('.main *, .side *').forEach(function(el){
+    if (el.scrollWidth > el.clientWidth + 1) {
+      out.push('WIDTH OVERFLOW: .' + (el.className || el.tagName) +
+               ' needs ' + el.scrollWidth + 'px, has ' + el.clientWidth + 'px');
+    }
   });
   var d=document.createElement('div'); d.id='diag-probe'; d.textContent=out.join('|');
   document.body.appendChild(d);
